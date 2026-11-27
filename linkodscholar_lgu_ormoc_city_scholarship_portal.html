@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LinkodScholar — LGU Ormoc City Scholarship Office</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              DEFAULT: '#173B8A',
+              hover: '#122E6E',
+              light: '#EEF3FC',
+              dark: '#0F234B',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { color: #1E293B; background-color: #FFFFFF; -webkit-font-smoothing: antialiased; }
+    .eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #173B8A;
+    }
+    .card-box {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 0.75rem;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .card-box:hover {
+      border-color: #CBD5E1;
+      box-shadow: 0 4px 14px -4px rgba(15, 35, 75, 0.06);
+    }
+    button:focus-visible,
+    a:focus-visible {
+      outline: 3px solid rgba(23, 59, 138, 0.35);
+      outline-offset: 2px;
+    }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #fff; }
+      .card-box { border: 1px solid #cbd5e1; box-shadow: none; break-inside: avoid; }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col overflow-x-hidden">
+
+  <!-- TOP NAVIGATION -->
+  <header class="sticky top-0 z-[100] bg-white/95 backdrop-blur border-b border-slate-200/80 no-print">
+    <div class="max-w-6xl mx-auto px-3 sm:px-6 h-16 flex items-center justify-between gap-2 sm:gap-4">
+      <!-- Brand Logo -->
+      <a href="#" onclick="switchView('home'); return false;" class="flex items-center gap-2 sm:gap-3 shrink-0">
+        <div class="w-9 h-9 rounded-full border border-slate-300 bg-slate-50 flex items-center justify-center text-[#173B8A]">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M3 21h18M4 18h16M6 18V9m4 9V9m4 9V9m4 9V9M2 9l10-6 10 6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="leading-tight">
+          <span class="block text-sm font-bold text-slate-900">LinkodScholar</span>
+          <span class="block text-[11px] font-medium text-slate-500">LGU Ormoc City</span>
+        </div>
+      </a>
+
+      <!-- Decluttered Dropdown Navigation -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+        <a href="#" onclick="switchView('home'); return false;" id="nav-home-link" class="text-[#173B8A] font-bold transition">Home</a>
+
+        <!-- Dropdown 1: Program Guide -->
+        <div class="relative nav-dropdown">
+          <button type="button" onclick="toggleDropdown('dd-program')" class="inline-flex items-center gap-1 hover:text-[#173B8A] transition py-2">
+            <span>Program Guide</span>
+            <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div id="dd-program" class="hidden absolute left-0 mt-1 w-64 bg-white border border-slate-200 rounded-xl shadow-lg p-1.5 z-50">
+            <button type="button" onclick="switchView('benefits')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-50 transition">
+              <span class="block text-xs font-bold text-slate-900">Benefits &amp; Allowances</span>
+              <span class="block text-[11px] text-slate-500">Tuition, stipend, textbook &amp; graduation</span>
+            </button>
+            <button type="button" onclick="switchView('qualifications')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-50 transition">
+              <span class="block text-xs font-bold text-slate-900">Qualifications &amp; Disqualifications</span>
+              <span class="block text-[11px] text-slate-500">8 official criteria &amp; 5 disqualification grounds</span>
+            </button>
+            <button type="button" onclick="switchView('howto')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-50 transition">
+              <span class="block text-xs font-bold text-slate-900">How to Use LinkodScholar</span>
+              <span class="block text-[11px] text-slate-500">Applicant web vs. scholar mobile app</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Dropdown 2: Application -->
+        <div class="relative nav-dropdown">
+          <button type="button" onclick="toggleDropdown('dd-application')" class="inline-flex items-center gap-1 hover:text-[#173B8A] transition py-2">
+            <span>Application</span>
+            <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div id="dd-application" class="hidden absolute left-0 mt-1 w-64 bg-white border border-slate-200 rounded-xl shadow-lg p-1.5 z-50">
+            <button type="button" onclick="switchView('requirements')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-50 transition">
+              <span class="block text-xs font-bold text-slate-900">Requirements</span>
+              <span class="block text-[11px] text-slate-500">Documents for each application step</span>
+            </button>
+            <button type="button" onclick="switchView('service')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-50 transition">
+              <span class="block text-xs font-bold text-slate-900">60-Hour Community Service</span>
+              <span class="block text-[11px] text-slate-500">30 hrs/sem &amp; LGU volunteer activities</span>
+            </button>
+          </div>
+        </div>
+
+        <button type="button" onclick="switchView('announcements')" class="hover:text-[#173B8A] transition">Announcements</button>
+        <button type="button" onclick="switchView('contact')" class="hover:text-[#173B8A] transition">Contact</button>
+      </nav>
+
+      <!-- Right Action Buttons -->
+      <div class="flex items-center gap-3 sm:gap-4">
+        <button type="button" onclick="openModal('admin')" class="hidden md:block text-xs sm:text-sm font-medium text-slate-600 hover:text-slate-900 transition">
+          Admin sign in
+        </button>
+        <button type="button" onclick="openModal('apply')" class="bg-[#173B8A] hover:bg-[#122E6E] text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-lg transition">
+          Apply now
+        </button>
+        <button
+          type="button"
+          onclick="toggleMobileMenu()"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          id="mobile-menu-button"
+          class="md:hidden w-9 h-9 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-50 flex items-center justify-center transition"
+        >
+          <svg id="mobile-menu-icon" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- Full-Screen Mobile Navigation Menu -->
+    <div id="mobile-menu" class="hidden fixed inset-0 z-[110] md:hidden overflow-y-auto bg-[#0F234B] text-white">
+      <div class="min-h-full flex flex-col px-6 py-5">
+        <div class="flex items-center justify-between border-b border-white/15 pb-5">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center text-[#173B8A]">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M3 21h18M4 18h16M6 18V9m4 9V9m4 9V9m4 9V9M2 9l10-6 10 6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="leading-tight">
+              <span class="block text-sm font-bold">LinkodScholar</span>
+              <span class="block text-[11px] text-slate-300">LGU Ormoc City</span>
+            </div>
+          </div>
+          <button type="button" onclick="toggleMobileMenu()" aria-label="Close navigation menu" class="w-10 h-10 rounded-lg text-3xl leading-none hover:bg-white/10 transition">
+            &times;
+          </button>
+        </div>
+
+        <nav class="flex flex-col gap-1 py-6 text-base font-semibold">
+          <button type="button" onclick="switchView('home')" data-mobile-view="home" class="flex items-center px-3 py-3 rounded-lg hover:bg-white/10 text-left">Home</button>
+          <button type="button" onclick="toggleMobileSubmenu('mobile-program')" aria-controls="mobile-program" aria-expanded="false" class="flex items-center justify-between px-3 py-3 rounded-lg hover:bg-white/10 text-left">Program Guide <span data-mobile-arrow="mobile-program">&rsaquo;</span></button>
+          <div id="mobile-program" class="hidden ml-3 border-l border-white/20 pl-3">
+            <button type="button" onclick="switchView('benefits')" data-mobile-view="benefits" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium text-slate-200 hover:bg-white/10">Benefits &amp; Allowances</button>
+            <button type="button" onclick="switchView('qualifications')" data-mobile-view="qualifications" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium text-slate-200 hover:bg-white/10">Qualifications</button>
+            <button type="button" onclick="switchView('howto')" data-mobile-view="howto" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium text-slate-200 hover:bg-white/10">How to use</button>
+          </div>
+          <button type="button" onclick="toggleMobileSubmenu('mobile-application')" aria-controls="mobile-application" aria-expanded="false" class="flex items-center justify-between px-3 py-3 rounded-lg hover:bg-white/10 text-left">Application <span data-mobile-arrow="mobile-application">&rsaquo;</span></button>
+          <div id="mobile-application" class="hidden ml-3 border-l border-white/20 pl-3">
+            <button type="button" onclick="switchView('requirements')" data-mobile-view="requirements" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium text-slate-200 hover:bg-white/10">Requirements</button>
+            <button type="button" onclick="switchView('service')" data-mobile-view="service" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium text-slate-200 hover:bg-white/10">Community service</button>
+          </div>
+          <button type="button" onclick="switchView('announcements')" data-mobile-view="announcements" class="flex items-center px-3 py-3 rounded-lg hover:bg-white/10 text-left">Announcements</button>
+          <button type="button" onclick="switchView('contact')" data-mobile-view="contact" class="flex items-center px-3 py-3 rounded-lg hover:bg-white/10 text-left">Contact</button>
+          <button type="button" onclick="openModal('admin'); closeMobileMenu()" class="flex items-center px-3 py-3 rounded-lg hover:bg-white/10 text-left">Admin sign in</button>
+        </nav>
+      </div>
+    </div>
+
+  <!-- =========================================================
+       VIEW 1: LANDING PAGE (HERO + METRICS + 3-BOX HOVER SLIDERS + 5-STAGE BANNER)
+  ========================================================== -->
+  <main id="view-home" class="app-view flex-1">
+
+    <!-- 1. HERO + 3-METRIC STRIP -->
+    <section class="border-b border-slate-200/80 py-4 sm:py-6">
+      <div class="max-w-6xl mx-auto px-2 sm:px-4">
+        <img
+          src="linkodscholar-hero-reference.png"
+          alt="LGU Ormoc City Scholarship Office: a clear path from application to scholar, with Ormoc City Hall and scholarship program metrics"
+          class="block w-full h-auto rounded-xl"
+          loading="eager"
+        />
+        <div class="sr-only">
+          <h1>A clear path from application to scholar</h1>
+          <p>Submit your scholarship application online, track every screening stage in real time, and log your community service hours in one official platform.</p>
+          <p>Applications are open for the AY 2026–2027 intake from October 29, 2026 through December 29, 2026.</p>
+          <ul>
+            <li>804 active LGU Ormoc City scholars</li>
+            <li>60 hours of annual community service</li>
+            <li>50+ city-wide activities each year</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. 3-BOX HOVER-SLIDING PHOTO CAROUSELS (WHAT THE SCHOLARSHIP IS ABOUT) -->
+    <section id="highlights" class="border-b border-slate-200/80 py-12 sm:py-14">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+          <div>
+            <p class="eyebrow mb-1">What the Scholarship Is About</p>
+            <h2 class="text-2xl font-extrabold text-slate-900">Financial support, recognition, and service</h2>
+            <p class="text-xs sm:text-sm text-slate-500 mt-1">
+              Hover over each card to browse photos of financial payouts, graduation awards, and LGU community service activities.
+            </p>
+          </div>
+        </div>
+
+        <div id="highlights-grid" class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <!-- Populated safely via DOM methods -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. FULL-WIDTH INTERACTIVE APPLICATION PROCESS SHOWCASE -->
+    <section id="home-stages" class="py-10 sm:py-14">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+          <div>
+            <p class="eyebrow mb-1">Application Roadmap</p>
+            <h2 class="text-2xl font-extrabold text-slate-900">Application process</h2>
+            <p class="text-xs sm:text-sm text-slate-500 mt-1">
+              Hover over the banner to review each step, or click <strong>See requirements</strong> to view the documents for that step.
+            </p>
+          </div>
+        </div>
+
+        <!-- Single Compact Full-Width Banner Card -->
+        <div
+          id="home-stage-showcase"
+          onmouseenter="startHomeStageHover()"
+          onmouseleave="stopHomeStageHover()"
+          class="relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-900 shadow-xs"
+        >
+          <!-- Sliding Track -->
+          <div id="home-stage-track" class="flex w-full transition-transform duration-500 ease-out">
+            <!-- Populated safely via DOM methods -->
+          </div>
+
+          <!-- Top-Right Hover Hint & Counter -->
+          <div class="absolute top-3.5 right-3.5 z-10 flex items-center gap-2 pointer-events-none">
+            <span class="hidden sm:inline-block bg-slate-950/65 backdrop-blur-xs text-white/90 text-[11px] font-medium px-2.5 py-1 rounded-full">
+              Hover to slide
+            </span>
+            <span id="home-stage-counter" class="bg-[#173B8A] text-white text-xs font-bold px-3 py-1 rounded-full shadow-xs">
+              Stage 1 of 5
+            </span>
+          </div>
+
+          <!-- Left / Right Controls -->
+          <button
+            type="button"
+            aria-label="Previous stage"
+            onclick="stepHomeStage(-1)"
+            class="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 z-10 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/90 hover:bg-white text-slate-900 flex items-center justify-center shadow-md transition font-bold text-base"
+          >&lsaquo;</button>
+          <button
+            type="button"
+            aria-label="Next stage"
+            onclick="stepHomeStage(1)"
+            class="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 z-10 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/90 hover:bg-white text-slate-900 flex items-center justify-center shadow-md transition font-bold text-base"
+          >&rsaquo;</button>
+
+          <!-- Bottom Indicator Dots -->
+          <div id="home-stage-dots" class="absolute bottom-3.5 right-4 sm:right-6 z-10 flex items-center gap-2">
+            <!-- Populated safely via DOM methods -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================
+       VIEW 2: BENEFITS & ALLOWANCES
+  ========================================================== -->
+  <main id="view-benefits" class="app-view hidden flex-1 py-10 sm:py-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 space-y-7">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="space-y-1">
+          <button type="button" onclick="switchView('home')" class="inline-flex items-center gap-1.5 text-xs font-semibold text-[#173B8A] hover:underline">
+            <span>&larr; Back to home</span>
+          </button>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Scholarship Benefits &amp; Allowances</h1>
+          <p class="text-xs sm:text-sm text-slate-600">
+            Financial grants and completion support provided to active LGU Ormoc City Scholars.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="card-box p-5 space-y-2">
+          <span class="inline-block text-[11px] font-bold uppercase tracking-wider text-[#173B8A] bg-[#EEF3FC] px-2.5 py-0.5 rounded">Per Semester</span>
+          <div class="text-2xl sm:text-3xl font-extrabold text-slate-900">&#8369;18,000</div>
+          <h2 class="text-sm font-bold text-slate-900">Tuition &amp; Matriculation Fee</h2>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Covers tuition and matriculation fees up to Php 18,000 per semester at recognized partner institutions.
+          </p>
+        </div>
+
+        <div class="card-box p-5 space-y-2">
+          <span class="inline-block text-[11px] font-bold uppercase tracking-wider text-[#173B8A] bg-[#EEF3FC] px-2.5 py-0.5 rounded">Monthly</span>
+          <div class="text-2xl sm:text-3xl font-extrabold text-slate-900">&#8369;2,000</div>
+          <h2 class="text-sm font-bold text-slate-900">Monthly Living Stipend</h2>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Direct monthly allowance to assist scholars with daily transportation, meals, and school expenses.
+          </p>
+        </div>
+
+        <div class="card-box p-5 space-y-2">
+          <span class="inline-block text-[11px] font-bold uppercase tracking-wider text-[#173B8A] bg-[#EEF3FC] px-2.5 py-0.5 rounded">Per Semester</span>
+          <div class="text-2xl sm:text-3xl font-extrabold text-slate-900">&#8369;4,000</div>
+          <h2 class="text-sm font-bold text-slate-900">Textbook Allowance</h2>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Semestral allocation for required textbooks, laboratory manuals, and academic learning materials.
+          </p>
+        </div>
+
+        <div class="card-box p-5 space-y-2">
+          <span class="inline-block text-[11px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded">Upon Completion</span>
+          <div class="text-2xl sm:text-3xl font-extrabold text-slate-900">&#8369;3,000</div>
+          <h2 class="text-sm font-bold text-slate-900">Graduation Allowance</h2>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Graduation support allowance and academic recognition upon successful completion of your degree program.
+          </p>
+        </div>
+      </div>
+
+      <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/70 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="space-y-1">
+          <h3 class="text-sm font-bold text-slate-900">Maintaining Scholarship Privileges</h3>
+          <p class="text-xs text-slate-600">
+            Scholars maintain good academic standing and complete <strong>60 community service hours per academic year (30 hours per semester)</strong>.
+          </p>
+        </div>
+        <button type="button" onclick="switchView('qualifications')" class="text-xs font-semibold text-[#173B8A] hover:underline shrink-0">
+          Check Qualifications &rarr;
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- =========================================================
+       VIEW 3: QUALIFICATIONS (8) & DISQUALIFICATIONS (5) + SELF-CHECK
+  ========================================================== -->
+  <main id="view-qualifications" class="app-view hidden flex-1 py-10 sm:py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-7">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="space-y-1 border-l-4 border-blue-500 pl-4">
+          <button type="button" onclick="switchView('home')" class="inline-flex items-center gap-1.5 text-xs font-semibold text-[#173B8A] hover:underline">
+            <span>&larr; Back to home</span>
+          </button>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Qualifications &amp; Disqualifications</h1>
+          <p class="text-xs sm:text-sm text-slate-600">
+            Official eligibility criteria and disqualification grounds set by the LGU Ormoc City Scholarship Office.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 items-stretch">
+      <!-- Panel A: 8 Qualifications -->
+      <div id="qual-panel" class="border border-blue-100 rounded-2xl bg-white overflow-hidden shadow-sm flex flex-col">
+        <div class="px-5 py-4 bg-blue-50 border-b border-blue-100">
+          <h2 class="text-lg font-extrabold text-[#173B8A]">Qualifications <span class="text-sm font-semibold">(8 Criteria)</span></h2>
+        </div>
+        <div class="divide-y divide-slate-200 flex-1">
+        <div class="p-4 sm:px-6 flex items-start gap-3.5">
+          <span class="w-6 h-6 rounded-full bg-[#EEF3FC] text-[#173B8A] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
+          <p class="text-xs sm:text-sm text-slate-800">Must be a <strong>Filipino citizen</strong>.</p>
+        </div>
+        <div class="p-4 sm:px-6 flex items-start gap-3.5">
+          <span class="w-6 h-6 rounded-full bg-[#EEF3FC] text-[#173B8A] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
+          <p class="text-xs sm:text-sm text-slate-800">Applicant and his/her family must be <strong>permanent residents of the City of Ormoc</strong>.</p>
+        </div>
+        <div class="p-4 sm:px-6 flex items-start gap-3.5">
+          <span class="w-6 h-6 rounded-full bg-[#EEF3FC] text-[#173B8A] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
+          <p class="text-xs sm:text-sm text-slate-800">With <strong>good moral character</strong> and without any derogatory record.</p>
+        </div>
+        <div class="p-4 sm:px-6 flex items-start gap-3.5">
+          <span class="w-6 h-6 rounded-full bg-[#EEF3FC] text-[#173B8A] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">4</span>
+          <p class="text-xs sm:text-sm text-slate-800">
+            <strong>For Grade 12 / Senior High School Graduates:</strong> Must have at least an <strong>80% general average</strong> and no failing grade in any subject during Grade 11 (and must graduate from Senior High School upon admission), or be a Senior High School graduate with at least an 80% average and no failing grade in Grade 12.
+          </p>
+        </div>
+        <div class="p-4 sm:px-6 flex items-start gap-3.5">
+          <span class="w-6 h-6 rounded-full bg-[#EEF3FC] text-[#173B8A] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">5</span>
+          <p class="text-xs sm:text-sm text-slate-800">
+            <strong>For Currently Enrolled College Students:</strong> Must have a weighted average of at least <strong>2.5 or 80%</strong> in the semester prior to application, with no failing grade and no incomplete (INC) grade.
+          </p>
+        </div>
+        <div class="p-4 sm:px-6 flex items-start gap-3.5">
+          <span class="w-6 h-6 rounded-full bg-[#EEF3FC] text-[#173B8A] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">6</span>
+          <p class="text-xs sm:text-sm text-slate-800">Has <strong>passed the entrance examination</strong>, if required, of the school where he/she intends to enroll.</p>
+        </div>
+        <div class="p-4 sm:px-6 flex items-start gap-3.5">
+          <span class="w-6 h-6 rounded-full bg-[#EEF3FC] text-[#173B8A] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">7</span>
+          <p class="text-xs sm:text-sm text-slate-800">Comes from a <strong>low-income / underprivileged family</strong> in Ormoc City, particularly those classified among the poorest of the poor.</p>
+        </div>
+        <div class="p-4 sm:px-6 flex items-start gap-3.5">
+          <span class="w-6 h-6 rounded-full bg-[#EEF3FC] text-[#173B8A] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">8</span>
+          <p class="text-xs sm:text-sm text-slate-800"><strong>Not presently enjoying</strong> any other government or private scholarship or study grant.</p>
+        </div>
+        </div>
+      </div>
+
+      <!-- Panel B: 5 Disqualifications -->
+      <div id="disqual-panel" class="border border-rose-100 rounded-2xl bg-white overflow-hidden shadow-sm flex flex-col">
+        <div class="px-5 py-4 bg-rose-50 border-b border-rose-100">
+          <h2 class="text-lg font-extrabold text-rose-800">Disqualifications <span class="text-sm font-semibold">(5 Grounds)</span></h2>
+        </div>
+        <div class="divide-y divide-slate-200 flex-1">
+        <div class="p-4 sm:px-6 flex items-start gap-3.5">
+          <span class="w-6 h-6 rounded-full bg-red-50 text-red-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
+          <p class="text-xs sm:text-sm text-slate-800">Persons who have <strong>already attained a bachelor’s degree</strong> or equivalent degree from any public or private higher education institution.</p>
+        </div>
+        <div class="p-4 sm:px-6 flex items-start gap-3.5">
+          <span class="w-6 h-6 rounded-full bg-red-50 text-red-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
+          <p class="text-xs sm:text-sm text-slate-800">Persons who have been <strong>dishonorably discharged</strong> from any public or private higher education institution for any reason other than financial difficulty in paying tuition and fees.</p>
+        </div>
+        <div class="p-4 sm:px-6 flex items-start gap-3.5">
+          <span class="w-6 h-6 rounded-full bg-red-50 text-red-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
+          <p class="text-xs sm:text-sm text-slate-800">Persons who have been <strong>convicted of any crime</strong> involving moral turpitude.</p>
+        </div>
+        <div class="p-4 sm:px-6 flex items-start gap-3.5">
+          <span class="w-6 h-6 rounded-full bg-red-50 text-red-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">4</span>
+          <p class="text-xs sm:text-sm text-slate-800">Persons coming from a family with a member who is <strong>already a grantee</strong> of the city scholarship program and has finished his/her academic program.</p>
+        </div>
+        <div class="p-4 sm:px-6 flex items-start gap-3.5">
+          <span class="w-6 h-6 rounded-full bg-red-50 text-red-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">5</span>
+          <p class="text-xs sm:text-sm text-slate-800">Persons who were previously <strong>disqualified or terminated</strong> from any scholarship grant.</p>
+        </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- =========================================================
+       VIEW 4: HOW TO USE LINKODSCHOLAR (APPLICANT WEB VS SCHOLAR MOBILE)
+  ========================================================== -->
+  <main id="view-howto" class="app-view hidden flex-1 py-10 sm:py-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 space-y-7">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div class="space-y-1">
+          <button type="button" onclick="switchView('home')" class="inline-flex items-center gap-1.5 text-xs font-semibold text-[#173B8A] hover:underline">
+            <span>&larr; Back to home</span>
+          </button>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900">How to Use LinkodScholar</h1>
+          <p class="text-xs sm:text-sm text-slate-600">
+            Switch between the Applicant Web Portal and the Scholar Mobile App.
+          </p>
+        </div>
+
+        <div class="inline-flex p-1 bg-slate-100 rounded-xl border border-slate-200 self-start sm:self-auto" role="tablist">
+          <button type="button" id="guide-tab-applicant" onclick="switchGuide('applicant')" class="px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold bg-[#173B8A] text-white transition">
+            1. For Applicants (Web)
+          </button>
+          <button type="button" id="guide-tab-scholar" onclick="switchGuide('scholar')" class="px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold text-slate-600 hover:text-slate-900 transition">
+            2. For Scholars (Mobile App)
+          </button>
+        </div>
+      </div>
+
+      <!-- Panel A: Applicant Web -->
+      <div id="guide-panel-applicant" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="card-box p-5">
+          <span class="inline-flex w-7 h-7 rounded-full bg-[#EEF3FC] text-[#173B8A] font-bold text-xs items-center justify-center mb-3">1</span>
+          <h2 class="text-sm font-bold text-slate-900">Verify your email</h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
+            Click <strong>Apply now</strong>, enter your email address, and sign in with the 6-digit verification code sent to your inbox.
+          </p>
+        </div>
+        <div class="card-box p-5">
+          <span class="inline-flex w-7 h-7 rounded-full bg-[#EEF3FC] text-[#173B8A] font-bold text-xs items-center justify-center mb-3">2</span>
+          <h2 class="text-sm font-bold text-slate-900">Upload 4 initial files</h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
+            Fill out your profile and upload your 2x2 ID picture, Barangay Clearance, Certificate of Indigency, and signatures.
+          </p>
+        </div>
+        <div class="card-box p-5">
+          <span class="inline-flex w-7 h-7 rounded-full bg-[#EEF3FC] text-[#173B8A] font-bold text-xs items-center justify-center mb-3">3</span>
+          <h2 class="text-sm font-bold text-slate-900">GPS + geotagged selfie check-in</h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
+            Verify presence inside the venue geofence with GPS coordinates, auto-timestamps, and a geotagged selfie (no facial recognition). Saves offline via SQLite and syncs automatically when signal returns.
+          </p>
+        </div>
+        <div class="card-box p-5">
+          <span class="inline-flex w-7 h-7 rounded-full bg-[#EEF3FC] text-[#173B8A] font-bold text-xs items-center justify-center mb-3">4</span>
+          <h2 class="text-sm font-bold text-slate-900">Submit Stage 5 documents</h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
+            Submit original hard copies at the Scholarship Office and upload photos on your dashboard to activate your scholar account.
+          </p>
+        </div>
+      </div>
+
+      <!-- Panel B: Scholar Mobile App -->
+      <div id="guide-panel-scholar" class="hidden grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="card-box p-5">
+          <span class="inline-flex w-7 h-7 rounded-full bg-[#EEF3FC] text-[#173B8A] font-bold text-xs items-center justify-center mb-3">1</span>
+          <h2 class="text-sm font-bold text-slate-900">Activate one-time account</h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
+            Upon Stage 5 approval, use your one-time activation link to sign in to the LinkodScholar mobile application.
+          </p>
+        </div>
+        <div class="card-box p-5">
+          <span class="inline-flex w-7 h-7 rounded-full bg-[#EEF3FC] text-[#173B8A] font-bold text-xs items-center justify-center mb-3">2</span>
+          <h2 class="text-sm font-bold text-slate-900">Register for activities</h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
+            Browse posted LGU clean-ups, tree planting, bloodletting, relief operations, or seminars and register in the app.
+          </p>
+        </div>
+        <div class="card-box p-5">
+          <span class="inline-flex w-7 h-7 rounded-full bg-[#EEF3FC] text-[#173B8A] font-bold text-xs items-center justify-center mb-3">3</span>
+          <h2 class="text-sm font-bold text-slate-900">GPS + selfie check-in</h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
+            Verify presence inside the venue geofence with a geotagged selfie. Works offline when signal is weak and syncs automatically later.
+          </p>
+        </div>
+        <div class="card-box p-5">
+          <span class="inline-flex w-7 h-7 rounded-full bg-[#EEF3FC] text-[#173B8A] font-bold text-xs items-center justify-center mb-3">4</span>
+          <h2 class="text-sm font-bold text-slate-900">Track 60-hour compliance</h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
+            Check out at activity end. Validated community service hours automatically count toward your 30-hour semester and 60-hour annual goal.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- =========================================================
+       VIEW 5: OFFICIAL REQUIREMENTS
+  ========================================================== -->
+  <main id="view-requirements" class="app-view hidden flex-1 py-10 sm:py-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 space-y-7">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="space-y-1">
+          <button type="button" onclick="switchView('home')" class="inline-flex items-center gap-1.5 text-xs font-semibold text-[#173B8A] hover:underline no-print">
+            <span>&larr; Back to home</span>
+          </button>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Official Requirements</h1>
+          <p class="text-xs sm:text-sm text-slate-600">
+            Review the documents and actions needed throughout the LGU Ormoc City Scholarship application.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Requirements -->
+      <div class="border border-slate-200 rounded-xl divide-y divide-slate-200 bg-white overflow-hidden">
+
+        <div class="p-5 stage-card" data-stage="1">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <h2 class="text-sm sm:text-base font-bold text-slate-900">Application + Initial Requirements</h2>
+            <span class="text-[11px] font-semibold text-[#173B8A] bg-[#EEF3FC] px-2.5 py-0.5 rounded-md">Online Submission</span>
+          </div>
+          <ul class="space-y-1.5 text-xs sm:text-sm text-slate-700 list-disc pl-5">
+            <li>Completed online application form (personal, family, and educational information)</li>
+            <li>2x2 ID picture (uploaded)</li>
+            <li>Barangay Clearance (uploaded)</li>
+            <li>Certificate of Indigency (uploaded)</li>
+            <li>Applicant’s signature and parent or guardian’s signature (uploaded)</li>
+          </ul>
+        </div>
+
+        <div class="p-5 stage-card" data-stage="2">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <h2 class="text-sm sm:text-base font-bold text-slate-900">Qualifying Examination</h2>
+            <span class="text-[11px] font-semibold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-md">Offline / In Person</span>
+          </div>
+          <ul class="space-y-1.5 text-xs sm:text-sm text-slate-700 list-disc pl-5">
+            <li>Attend the physical Qualifying Examination on the scheduled date and venue assigned by the LGU Ormoc City Scholarship Office</li>
+            <li>Official examination results are encoded into the system by Scholarship Office administrators</li>
+          </ul>
+        </div>
+
+        <div class="p-5 stage-card" data-stage="3">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <h2 class="text-sm sm:text-base font-bold text-slate-900">CSWD Interview</h2>
+            <span class="text-[11px] font-semibold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-md">Offline / In Person</span>
+          </div>
+          <ul class="space-y-1.5 text-xs sm:text-sm text-slate-700 list-disc pl-5">
+            <li>Attend the scheduled interview conducted through the City Social Welfare and Development (CSWD) office</li>
+            <li>Official interview results are encoded into the system by Scholarship Office administrators</li>
+          </ul>
+        </div>
+
+        <div class="p-5 stage-card" data-stage="4">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <h2 class="text-sm sm:text-base font-bold text-slate-900">City Hall Interview</h2>
+            <span class="text-[11px] font-semibold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-md">Offline / In Person</span>
+          </div>
+          <ul class="space-y-1.5 text-xs sm:text-sm text-slate-700 list-disc pl-5">
+            <li>Attend the physical City Hall Interview on the scheduled date and batch</li>
+            <li>Passing this interview unlocks final document submission</li>
+          </ul>
+        </div>
+
+        <div class="p-5 stage-card space-y-3" data-stage="5">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <h2 class="text-sm sm:text-base font-bold text-slate-900">Final Document Submission</h2>
+            <span class="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-md">Physical Submission + Portal Upload</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600">
+            Personally submit the physical documents to the LGU Ormoc City Scholarship Office and upload a clear photo/scan of each on your applicant dashboard:
+          </p>
+          <ul class="space-y-1.5 text-xs sm:text-sm text-slate-700 list-disc pl-5">
+            <li>Printed and signed application form (printed from your applicant dashboard)</li>
+            <li>Certificate of Good Moral Character from the school (previous year, certified true copy)</li>
+            <li>Report Card (Form 138, previous year) for Grade 12 and 1st Year College; OR Certificate of Grades from the previous year for 2nd to 3rd Year College (certified true copy by the school)</li>
+            <li>Official Report of Ratings or Certificate of Grades for the last semester attended, issued by the School Registrar or Dean (original; general average must not be lower than 2.5 or 80% for those with college units)</li>
+            <li>Latest BIR Income Tax Return (ITR) or Certificate of Tax Exemption of parents/guardian; OR an Affidavit of Low Income if not filing an ITR (original)</li>
+            <li>Certification of the basic salary of the applicant’s parent(s) from HR, if employed (original)</li>
+            <li>Case Assessment Certificate from CSWD (Barangay 3-in-1 Building)</li>
+            <li>Electric bill and water bill for the past month (photocopy)</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- =========================================================
+       VIEW 7: 60-HOUR COMMUNITY SERVICE & COMPLIANCE
+  ========================================================== -->
+  <main id="view-service" class="app-view hidden flex-1 py-10 sm:py-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 space-y-7">
+      <div class="space-y-1">
+        <button type="button" onclick="switchView('home')" class="inline-flex items-center gap-1.5 text-xs font-semibold text-[#173B8A] hover:underline">
+          <span>&larr; Back to home</span>
+        </button>
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900">60-Hour Community Service Obligation</h1>
+        <p class="text-xs sm:text-sm text-slate-600">
+          How active scholars fulfill their annual civic service requirement through the LinkodScholar mobile app.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="card-box p-5">
+          <span class="eyebrow text-[10px]">Annual Requirement</span>
+          <div class="text-2xl font-extrabold text-[#173B8A] mt-1">60 Hours / Year</div>
+          <p class="text-xs text-slate-600 mt-1">Divided into <strong>30 hours per semester</strong> across LGU-organized volunteer activities.</p>
+        </div>
+        <div class="card-box p-5">
+          <span class="eyebrow text-[10px]">Credited Activities</span>
+          <div class="text-lg font-extrabold text-slate-900 mt-1">Community Service Only</div>
+          <p class="text-xs text-slate-600 mt-1">Clean-ups, tree planting, bloodletting drives, and donation/relief operations count toward the 60-hour quota.</p>
+        </div>
+        <div class="card-box p-5">
+          <span class="eyebrow text-[10px]">Attendance-Only Events</span>
+          <div class="text-lg font-extrabold text-slate-900 mt-1">Meetings &amp; Seminars</div>
+          <p class="text-xs text-slate-600 mt-1">Meetings, seminars, trainings, orientations, and workshops record attendance but do not credit service hours.</p>
+        </div>
+      </div>
+
+      <div class="card-box p-6 space-y-3">
+        <h2 class="text-base font-bold text-slate-900">Venue Attendance Verification (Online &amp; Offline Support)</h2>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Scholars check in and check out at activity venues using the dedicated <strong>LinkodScholar mobile app</strong>, which verifies presence via <strong>GPS coordinates, geofencing boundaries, auto-timestamps, and a geotagged selfie (no facial recognition)</strong>. When an activity site has weak or no mobile internet signal, attendance logs save locally on the device via SQLite and sync automatically once connectivity returns.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- =========================================================
+       VIEW 8: ANNOUNCEMENTS
+  ========================================================== -->
+  <main id="view-announcements" class="app-view hidden flex-1 py-10 sm:py-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 space-y-7">
+      <div class="space-y-1">
+        <button type="button" onclick="switchView('home')" class="inline-flex items-center gap-1.5 text-xs font-semibold text-[#173B8A] hover:underline">
+          <span>&larr; Back to home</span>
+        </button>
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Official Announcements</h1>
+        <p class="text-xs sm:text-sm text-slate-600">
+          Verified notices and schedules from the LGU Ormoc City Scholarship Office.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <article class="card-box p-5">
+          <time class="block text-[11px] font-medium text-slate-400">October 29, 2026</time>
+          <h2 class="text-sm font-bold text-slate-900 mt-1">Online Applications Open (AY 2026–2027)</h2>
+          <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+            Stage 1 online intake is open until December 29, 2026. Prepare clear photos or scans of your 4 initial documents before starting.
+          </p>
+        </article>
+
+        <article class="card-box p-5">
+          <time class="block text-[11px] font-medium text-slate-400">November 05, 2026</time>
+          <h2 class="text-sm font-bold text-slate-900 mt-1">1st Semester 30-Hour Service Reminder</h2>
+          <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+            Active scholars are reminded to complete at least 30 community service hours this semester and sync any offline check-ins.
+          </p>
+        </article>
+
+        <article class="card-box p-5">
+          <time class="block text-[11px] font-medium text-slate-400">November 12, 2026</time>
+          <h2 class="text-sm font-bold text-slate-900 mt-1">Weekend Coastal Clean-up &amp; Tree Planting</h2>
+          <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+            Slots are open in the LinkodScholar mobile app. Enable GPS location permissions before arriving at the activity site.
+          </p>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- =========================================================
+       VIEW 9: CONTACT
+  ========================================================== -->
+  <main id="view-contact" class="app-view hidden flex-1 py-10 sm:py-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 space-y-7">
+      <div class="space-y-1">
+        <button type="button" onclick="switchView('home')" class="inline-flex items-center gap-1.5 text-xs font-semibold text-[#173B8A] hover:underline">
+          <span>&larr; Back to home</span>
+        </button>
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Contact the Scholarship Office</h1>
+        <p class="text-xs sm:text-sm text-slate-600">
+          Send anonymous feedback or general questions, or reach the office directly at Ormoc City Hall.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div class="lg:col-span-5 divide-y divide-slate-200 border-t border-b border-slate-200 text-xs sm:text-sm">
+          <div class="py-3.5">
+            <span class="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Office Location</span>
+            <span class="font-medium text-slate-800 mt-0.5 block">LGU Ormoc City Scholarship Office, City Hall, Ormoc City, Leyte</span>
+          </div>
+          <div class="py-3.5">
+            <span class="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Official Email</span>
+            <a href="mailto:scholarship@ormoc.gov.ph" class="font-semibold text-[#173B8A] hover:underline mt-0.5 block">scholarship@ormoc.gov.ph</a>
+          </div>
+          <div class="py-3.5">
+            <span class="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Office Hours</span>
+            <span class="font-medium text-slate-800 mt-0.5 block">Monday – Friday, 8:00 AM – 5:00 PM</span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <form onsubmit="handleContactSubmit(event)" class="card-box p-6 space-y-4">
+            <div>
+              <label for="contact-msg" class="block text-xs font-bold text-slate-800 mb-1.5">
+                Message <span class="text-red-500">*</span>
+              </label>
+              <textarea
+                id="contact-msg"
+                rows="4"
+                maxlength="2000"
+                required
+                oninput="document.getElementById('char-count').textContent = this.value.length + '/2000'"
+                placeholder="Your feedback or general question. Do not include personal details."
+                class="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-[#173B8A] focus:ring-2 focus:ring-[#173B8A]/15"
+              ></textarea>
+              <div class="flex items-center justify-between text-[11px] text-slate-400 mt-1">
+                <span>Protected under the Data Privacy Act of 2012</span>
+                <span id="char-count">0/2000</span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <button type="submit" class="bg-[#173B8A] hover:bg-[#122E6E] text-white text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-lg transition">
+                Send message
+              </button>
+              <span id="contact-feedback" class="text-xs font-semibold text-emerald-700 hidden">Message sent to the Scholarship Office.</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- DARK NAVY FOOTER -->
+  <footer class="bg-[#0F234B] text-slate-300 mt-auto no-print">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 grid grid-cols-1 md:grid-cols-12 gap-8">
+      <div class="md:col-span-6 space-y-2.5">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M3 21h18M4 18h16M6 18V9m4 9V9m4 9V9m4 9V9M2 9l10-6 10 6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="leading-tight">
+            <span class="block text-sm font-bold text-white">LinkodScholar</span>
+            <span class="block text-[11px] text-slate-400">LGU Ormoc City</span>
+          </div>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed max-w-md">
+          The official platform of the LGU Ormoc City Scholarship Office. Apply online, track your screening stages, and monitor your 60-hour community service compliance in one place.
+        </p>
+      </div>
+
+      <div class="md:col-span-3 space-y-2 text-xs">
+        <span class="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Quick Links</span>
+        <ul class="space-y-1.5">
+          <li><button type="button" onclick="switchView('requirements')" class="hover:text-white transition">Official requirements</button></li>
+          <li><button type="button" onclick="switchView('howto')" class="hover:text-white transition">How to use</button></li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-3 space-y-2 text-xs">
+        <span class="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Governance</span>
+        <ul class="space-y-1.5">
+          <li><button type="button" onclick="openModal('privacy')" class="hover:text-white transition text-left">Data Privacy Policy</button></li>
+          <li><button type="button" onclick="switchView('contact')" class="hover:text-white transition text-left">Contact Scholarship Office</button></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-slate-400">
+        <span>&copy; 2026 LGU Ormoc City. All rights reserved.</span>
+        <span>Operated by the LGU Ormoc City Scholarship Office.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PORTAL MODAL (APPLY / ADMIN / PRIVACY / ELIGIBILITY SELF-CHECK) -->
+  <div id="portal-modal" class="fixed inset-0 z-50 hidden bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-white border border-slate-200 rounded-2xl max-w-md w-full p-6 space-y-4 shadow-xl">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <span id="modal-eyebrow" class="eyebrow">Applicant Portal</span>
+          <h3 id="modal-title" class="text-lg font-extrabold text-slate-900 mt-0.5">Start Your Application</h3>
+        </div>
+        <button type="button" onclick="closeModal()" class="text-slate-400 hover:text-slate-700 text-lg font-bold leading-none">&times;</button>
+      </div>
+      <p id="modal-body" class="text-xs sm:text-sm text-slate-600 leading-relaxed"></p>
+      <div id="modal-form-area" class="space-y-3"></div>
+      <p id="modal-status" class="hidden text-xs font-bold"></p>
+      <div class="flex justify-end gap-2 pt-2">
+        <button type="button" onclick="closeModal()" class="px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-lg">Close</button>
+        <button type="button" id="modal-primary-btn" onclick="handleModalPrimary()" class="px-4 py-2 text-xs font-semibold bg-[#173B8A] hover:bg-[#122E6E] text-white rounded-lg">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // =========================================================
+    // 1. 3-BOX HOVER-SLIDING PHOTO CAROUSELS (SAFE DOM CREATION)
+    // =========================================================
+    const highlightBoxes = [
+      {
+        badge: 'Financial Grants',
+        title: 'Tuition, Stipends & Allowances',
+        description: 'Up to Php 18,000 tuition/semester, Php 2,000 monthly living stipend, and Php 4,000 textbook allowance per semester.',
+        linkText: 'View full benefits breakdown',
+        linkView: 'benefits',
+        slides: [
+          {
+            img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=80',
+            caption: 'Tuition & Matriculation Grant (Php 18,000/sem)'
+          },
+          {
+            img: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=900&q=80',
+            caption: 'Monthly Living Stipend (Php 2,000/month)'
+          },
+          {
+            img: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=900&q=80',
+            caption: 'Semestral Textbook Allowance (Php 4,000/sem)'
+          }
+        ]
+      },
+      {
+        badge: 'Latin Honors & Recognition',
+        title: 'Academic Excellence & Graduation',
+        description: 'Graduating scholars with Latin honors receive laptops, formal recognition, and a Php 3,000 graduation allowance.',
+        linkText: 'Check official qualifications',
+        linkView: 'qualifications',
+        slides: [
+          {
+            img: 'https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=900&q=80',
+            caption: 'Latin Honors Recognition & Laptop Award'
+          },
+          {
+            img: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=900&q=80',
+            caption: 'Graduation Support (Php 3,000 Allowance)'
+          },
+          {
+            img: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=900&q=80',
+            caption: 'Academic Standing (At least 2.5 or 80%)'
+          }
+        ]
+      },
+      {
+        badge: 'Community Service',
+        title: '60 Hours of Service to Ormoc City',
+        description: 'Scholars complete 30 hours per semester through coastal & street clean-ups, tree planting, bloodletting drives, and donation/relief operations.',
+        linkText: 'Explore service guidelines',
+        linkView: 'service',
+        slides: [
+          {
+            img: 'https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?auto=format&fit=crop&w=900&q=80',
+            caption: 'Coastal & Street Clean-up Drives'
+          },
+          {
+            img: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=900&q=80',
+            caption: 'Tree Planting Activities'
+          },
+          {
+            img: 'https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&fit=crop&w=900&q=80',
+            caption: 'Bloodletting Drives'
+          },
+          {
+            img: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=900&q=80',
+            caption: 'Donation & Relief Operations'
+          }
+        ]
+      }
+    ];
+
+    const boxSlideIndex = [0, 0, 0];
+    const boxHoverTimers = [null, null, null];
+
+    function renderHighlights() {
+      const grid = document.getElementById('highlights-grid');
+      if (!grid) return;
+      grid.textContent = '';
+
+      highlightBoxes.forEach((box, boxIdx) => {
+        const card = document.createElement('article');
+        card.className = 'card-box overflow-hidden flex flex-col';
+        card.addEventListener('mouseenter', () => startBoxHover(boxIdx));
+        card.addEventListener('mouseleave', () => stopBoxHover(boxIdx));
+
+        // Image Viewport
+        const viewport = document.createElement('div');
+        viewport.className = 'relative h-48 bg-slate-100 overflow-hidden';
+
+        const track = document.createElement('div');
+        track.id = 'hl-track-' + boxIdx;
+        track.className = 'flex h-full transition-transform duration-500 ease-out';
+
+        box.slides.forEach((sl) => {
+          const slideEl = document.createElement('div');
+          slideEl.className = 'w-full h-full shrink-0 relative';
+
+          const img = document.createElement('img');
+          img.src = sl.img;
+          img.alt = sl.caption;
+          img.className = 'w-full h-full object-cover';
+          img.onerror = function () {
+            this.src = 'https://placehold.co/900x500/EEF3FC/173B8A?text=' + encodeURIComponent(box.badge);
+          };
+
+          const grad = document.createElement('div');
+          grad.className = 'absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent';
+
+          const cap = document.createElement('span');
+          cap.className = 'absolute bottom-2.5 left-3 right-16 text-[11px] font-semibold text-white truncate';
+          cap.textContent = sl.caption;
+
+          slideEl.appendChild(img);
+          slideEl.appendChild(grad);
+          slideEl.appendChild(cap);
+          track.appendChild(slideEl);
+        });
+
+        // Top-Left Category Badge
+        const badge = document.createElement('span');
+        badge.className = 'absolute top-3 left-3 bg-white/95 text-[#173B8A] text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md shadow-xs';
+        badge.textContent = box.badge;
+
+        // Left / Right Mini Arrows
+        const prevBtn = document.createElement('button');
+        prevBtn.type = 'button';
+        prevBtn.setAttribute('aria-label', 'Previous slide');
+        prevBtn.className = 'absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white/85 hover:bg-white text-slate-900 text-xs font-bold flex items-center justify-center shadow-xs transition';
+        prevBtn.textContent = '\u2039';
+        prevBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          stepBoxSlide(boxIdx, -1);
+        });
+
+        const nextBtn = document.createElement('button');
+        nextBtn.type = 'button';
+        nextBtn.setAttribute('aria-label', 'Next slide');
+        nextBtn.className = 'absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-white/85 hover:bg-white text-slate-900 text-xs font-bold flex items-center justify-center shadow-xs transition';
+        nextBtn.textContent = '\u203A';
+        nextBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          stepBoxSlide(boxIdx, 1);
+        });
+
+        // Bottom Dots
+        const dotsWrap = document.createElement('div');
+        dotsWrap.id = 'hl-dots-' + boxIdx;
+        dotsWrap.className = 'absolute bottom-2.5 right-3 flex items-center gap-1';
+
+        box.slides.forEach((_, sIdx) => {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.setAttribute('aria-label', 'Slide ' + (sIdx + 1));
+          dot.className = sIdx === 0
+            ? 'h-1.5 w-4 rounded-full bg-white transition-all'
+            : 'h-1.5 w-1.5 rounded-full bg-white/50 hover:bg-white transition-all';
+          dot.addEventListener('click', (e) => {
+            e.stopPropagation();
+            goToBoxSlide(boxIdx, sIdx);
+          });
+          dotsWrap.appendChild(dot);
+        });
+
+        viewport.appendChild(track);
+        viewport.appendChild(badge);
+        viewport.appendChild(prevBtn);
+        viewport.appendChild(nextBtn);
+        viewport.appendChild(dotsWrap);
+
+        // Card Body
+        const body = document.createElement('div');
+        body.className = 'p-5 flex-1 flex flex-col justify-between space-y-4';
+
+        const textWrap = document.createElement('div');
+        const h3 = document.createElement('h3');
+        h3.className = 'text-base font-bold text-slate-900';
+        h3.textContent = box.title;
+
+        const p = document.createElement('p');
+        p.className = 'text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed';
+        p.textContent = box.description;
+
+        textWrap.appendChild(h3);
+        textWrap.appendChild(p);
+
+        const linkBtn = document.createElement('button');
+        linkBtn.type = 'button';
+        linkBtn.className = 'text-xs font-semibold text-[#173B8A] hover:underline self-start';
+        linkBtn.textContent = box.linkText + ' \u2192';
+        linkBtn.addEventListener('click', () => switchView(box.linkView));
+
+        body.appendChild(textWrap);
+        body.appendChild(linkBtn);
+
+        card.appendChild(viewport);
+        card.appendChild(body);
+        grid.appendChild(card);
+      });
+    }
+
+    function goToBoxSlide(boxIdx, slideIdx) {
+      const total = highlightBoxes[boxIdx].slides.length;
+      boxSlideIndex[boxIdx] = ((slideIdx % total) + total) % total;
+      const track = document.getElementById('hl-track-' + boxIdx);
+      if (track) {
+        track.style.transform = 'translateX(-' + (boxSlideIndex[boxIdx] * 100) + '%)';
+      }
+      const dotsWrap = document.getElementById('hl-dots-' + boxIdx);
+      if (dotsWrap) {
+        Array.from(dotsWrap.children).forEach((dot, i) => {
+          dot.className = i === boxSlideIndex[boxIdx]
+            ? 'h-1.5 w-4 rounded-full bg-white transition-all'
+            : 'h-1.5 w-1.5 rounded-full bg-white/50 hover:bg-white transition-all';
+        });
+      }
+    }
+
+    function stepBoxSlide(boxIdx, delta) {
+      goToBoxSlide(boxIdx, boxSlideIndex[boxIdx] + delta);
+    }
+
+    function startBoxHover(boxIdx) {
+      stopBoxHover(boxIdx);
+      boxHoverTimers[boxIdx] = setInterval(() => {
+        stepBoxSlide(boxIdx, 1);
+      }, 2000);
+    }
+
+    function stopBoxHover(boxIdx) {
+      if (boxHoverTimers[boxIdx]) {
+        clearInterval(boxHoverTimers[boxIdx]);
+        boxHoverTimers[boxIdx] = null;
+      }
+    }
+
+    // =========================================================
+    // 2. FULL-WIDTH 5-STAGE SCREENING SHOWCASE (SAFE DOM CREATION)
+    // =========================================================
+    const homeStageData = [
+      {
+        stageLabel: 'Stage 1 of 5',
+        mode: 'Online Submission',
+        modeClass: 'bg-[#173B8A] text-white',
+        title: 'Stage 1: Application + Initial Requirements',
+        description: 'Complete the online form, submit your information, and wait for the Scholarship Office to verify your initial submission.',
+        image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1400&q=80',
+        prepareSummary: 'The Scholarship Office checks your online form and initial submission before allowing you to continue.',
+        advanceSummary: 'Scholarship Office administrators verify your online form and initial uploads to unlock Stage 2.'
+      },
+      {
+        stageLabel: 'Stage 2 of 5',
+        mode: 'Offline / In Person',
+        modeClass: 'bg-slate-800 text-white',
+        title: 'Stage 2: Qualifying Examination',
+        description: 'Attend the physical Qualifying Examination on the scheduled date and venue assigned by the LGU Ormoc City Scholarship Office.',
+        image: 'https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?auto=format&fit=crop&w=1400&q=80',
+        prepareSummary: 'In-person attendance at the physical Qualifying Examination on your assigned schedule and testing venue.',
+        advanceSummary: 'Scholarship Office administrators manually encode physical examination results; passing Stage 2 unlocks Stage 3.'
+      },
+      {
+        stageLabel: 'Stage 3 of 5',
+        mode: 'Offline / In Person',
+        modeClass: 'bg-slate-800 text-white',
+        title: 'Stage 3: CSWD Interview',
+        description: 'Attend the scheduled interview conducted through the City Social Welfare and Development (CSWD) office.',
+        image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1400&q=80',
+        prepareSummary: 'In-person attendance at the scheduled interview conducted through the City Social Welfare and Development (CSWD) office.',
+        advanceSummary: 'Scholarship Office administrators encode the CSWD interview result; passing Stage 3 unlocks Stage 4.'
+      },
+      {
+        stageLabel: 'Stage 4 of 5',
+        mode: 'Offline / In Person',
+        modeClass: 'bg-slate-800 text-white',
+        title: 'Stage 4: City Hall Interview',
+        description: 'Attend the physical City Hall Interview on your scheduled date and batch.',
+        image: 'https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1400&q=80',
+        prepareSummary: 'In-person attendance at the physical City Hall Interview on your scheduled date and assigned batch.',
+        advanceSummary: 'Scholarship Office administrators record passing results; passing Stage 4 unlocks Stage 5 Final Document Submission.'
+      },
+      {
+        stageLabel: 'Stage 5 of 5',
+        mode: 'Physical Submission + Portal Upload',
+        modeClass: 'bg-emerald-600 text-white',
+        title: 'Stage 5: Final Document Submission',
+        description: 'Personally submit physical documents to the LGU Ormoc City Scholarship Office and upload clear photos/scans on your applicant dashboard.',
+        image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1400&q=80',
+        prepareSummary: 'Signed form, Good Moral, Form 138/Grades (not lower than 2.5 or 80%), ITR/Affidavit of Low Income, HR salary cert, CSWD cert, & electric/water bills.',
+        advanceSummary: 'Verification of physical documents and dashboard uploads unlocks one-time scholar account activation.'
+      }
+    ];
+
+    let currentHomeStage = 0;
+    let homeStageTimer = null;
+    let stageDetailsOpen = false;
+
+    function renderHomeStage() {
+      const track = document.getElementById('home-stage-track');
+      const dots = document.getElementById('home-stage-dots');
+      if (!track || !dots) return;
+
+      track.textContent = '';
+      dots.textContent = '';
+
+      homeStageData.forEach((s) => {
+        const slide = document.createElement('div');
+        slide.className = 'w-full shrink-0 relative h-[320px] sm:h-[340px] lg:h-[360px] flex items-end';
+
+        const img = document.createElement('img');
+        img.src = s.image;
+        img.alt = s.title;
+        img.className = 'absolute inset-0 w-full h-full object-cover object-left opacity-90';
+        img.onerror = function () {
+          this.src = 'https://placehold.co/1400x360/0F234B/FFFFFF?text=' + encodeURIComponent(s.title);
+        };
+
+        const gradRight = document.createElement('div');
+        gradRight.className = 'absolute inset-0 bg-gradient-to-r from-slate-950/35 via-slate-950/75 to-slate-950/90';
+
+        const gradBottom = document.createElement('div');
+        gradBottom.className = 'absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/35 to-transparent';
+
+        const contentRow = document.createElement('div');
+        contentRow.className = 'relative z-10 w-full px-12 sm:px-14 pb-9 pt-12 flex flex-col lg:flex-row lg:items-end justify-between gap-4';
+
+        // Left Text Block
+        const leftCol = document.createElement('div');
+        leftCol.className = 'max-w-xl space-y-1.5';
+
+        const badgeRow = document.createElement('div');
+        badgeRow.className = 'flex flex-wrap items-center gap-2';
+
+        const stBadge = document.createElement('span');
+        stBadge.className = 'inline-block text-[10px] sm:text-[11px] font-bold uppercase tracking-wider bg-white text-[#173B8A] px-2.5 py-0.5 rounded-md';
+        stBadge.textContent = s.stageLabel;
+
+        const modeBadge = document.createElement('span');
+        modeBadge.className = 'inline-block text-[10px] sm:text-[11px] font-bold uppercase tracking-wider ' + s.modeClass + ' px-2.5 py-0.5 rounded-md';
+        modeBadge.textContent = s.mode;
+
+        badgeRow.appendChild(stBadge);
+        badgeRow.appendChild(modeBadge);
+
+        const titleEl = document.createElement('h3');
+        titleEl.className = 'text-lg sm:text-xl lg:text-2xl font-extrabold text-white tracking-tight';
+        titleEl.textContent = s.title;
+
+        const descEl = document.createElement('p');
+        descEl.className = 'text-xs sm:text-sm text-slate-200 leading-relaxed line-clamp-2';
+        descEl.textContent = s.description;
+
+        const btnWrap = document.createElement('div');
+        btnWrap.className = 'pt-1';
+
+        const toggleBtn = document.createElement('button');
+        toggleBtn.type = 'button';
+        toggleBtn.setAttribute('aria-expanded', stageDetailsOpen ? 'true' : 'false');
+        toggleBtn.className = 'inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/20 px-3 py-1.5 rounded-lg transition';
+        toggleBtn.textContent = 'See requirements \u2192';
+        toggleBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          openRequirementsForStage(homeStageData.indexOf(s) + 1);
+        });
+
+        btnWrap.appendChild(toggleBtn);
+        leftCol.appendChild(badgeRow);
+        leftCol.appendChild(titleEl);
+        leftCol.appendChild(descEl);
+        leftCol.appendChild(btnWrap);
+
+        // Right In-Banner Frosted Dark-Glass Details Card
+        const glassCard = document.createElement('div');
+        glassCard.className = (stageDetailsOpen
+          ? 'opacity-100 translate-y-0 pointer-events-auto'
+          : 'opacity-0 translate-y-2 pointer-events-none hidden lg:block') +
+          ' transition-all duration-300 lg:w-[430px] shrink-0 rounded-xl bg-slate-950/80 backdrop-blur-md border border-white/15 p-3.5 sm:p-4 text-xs text-slate-100 space-y-2.5 shadow-lg';
+
+        const prepBox = document.createElement('div');
+        const prepLabel = document.createElement('span');
+        prepLabel.className = 'block text-[10px] font-bold uppercase tracking-wider text-sky-300';
+        prepLabel.textContent = 'What happens';
+        const prepText = document.createElement('p');
+        prepText.className = 'text-slate-200 leading-snug mt-0.5';
+        prepText.textContent = s.prepareSummary;
+        prepBox.appendChild(prepLabel);
+        prepBox.appendChild(prepText);
+
+        const advBox = document.createElement('div');
+        advBox.className = 'border-t border-white/10 pt-2';
+        const advLabel = document.createElement('span');
+        advLabel.className = 'block text-[10px] font-bold uppercase tracking-wider text-emerald-300';
+        advLabel.textContent = 'How you advance';
+        const advText = document.createElement('p');
+        advText.className = 'text-slate-200 leading-snug mt-0.5';
+        advText.textContent = s.advanceSummary;
+        advBox.appendChild(advLabel);
+        advBox.appendChild(advText);
+
+        const actionRow = document.createElement('div');
+        actionRow.className = 'pt-0.5 flex items-center justify-between';
+
+        const checkLink = document.createElement('button');
+        checkLink.type = 'button';
+        checkLink.className = 'text-[11px] font-bold text-white hover:text-sky-300 underline underline-offset-2 transition';
+        checkLink.textContent = 'See requirements \u2192';
+        checkLink.addEventListener('click', (e) => {
+          e.stopPropagation();
+          openRequirementsForStage(homeStageData.indexOf(s) + 1);
+        });
+
+        const closeGlassBtn = document.createElement('button');
+        closeGlassBtn.type = 'button';
+        closeGlassBtn.className = 'text-[11px] font-medium text-slate-300 hover:text-white transition';
+        closeGlassBtn.textContent = 'Close';
+        closeGlassBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          toggleHomeStageDetails(false);
+        });
+
+        actionRow.appendChild(checkLink);
+        actionRow.appendChild(closeGlassBtn);
+
+        glassCard.appendChild(prepBox);
+        glassCard.appendChild(advBox);
+        glassCard.appendChild(actionRow);
+
+        contentRow.appendChild(leftCol);
+        contentRow.appendChild(glassCard);
+
+        slide.appendChild(img);
+        slide.appendChild(gradRight);
+        slide.appendChild(gradBottom);
+        slide.appendChild(contentRow);
+        track.appendChild(slide);
+      });
+
+      homeStageData.forEach((_, idx) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.setAttribute('aria-label', 'Go to Stage ' + (idx + 1));
+        dot.setAttribute('data-home-stage-dot', String(idx));
+        dot.className = idx === currentHomeStage
+          ? 'h-2 w-7 rounded-full bg-white transition-all'
+          : 'h-2 w-2 rounded-full bg-white/50 hover:bg-white transition-all';
+        dot.addEventListener('click', (e) => {
+          e.stopPropagation();
+          goToHomeStage(idx);
+        });
+        dots.appendChild(dot);
+      });
+    }
+
+    function toggleHomeStageDetails(forceState) {
+      stageDetailsOpen = typeof forceState === 'boolean' ? forceState : !stageDetailsOpen;
+      if (stageDetailsOpen) {
+        stopHomeStageHover();
+      }
+      renderHomeStage();
+      const track = document.getElementById('home-stage-track');
+      if (track) {
+        track.style.transform = 'translateX(-' + (currentHomeStage * 100) + '%)';
+      }
+    }
+
+    function goToHomeStage(index) {
+      const total = homeStageData.length;
+      currentHomeStage = ((index % total) + total) % total;
+
+      const track = document.getElementById('home-stage-track');
+      if (track) {
+        track.style.transform = 'translateX(-' + (currentHomeStage * 100) + '%)';
+      }
+
+      const counter = document.getElementById('home-stage-counter');
+      if (counter) {
+        counter.textContent = homeStageData[currentHomeStage].stageLabel;
+      }
+
+      document.querySelectorAll('[data-home-stage-dot]').forEach((dot, i) => {
+        dot.className = i === currentHomeStage
+          ? 'h-2 w-7 rounded-full bg-white transition-all'
+          : 'h-2 w-2 rounded-full bg-white/50 hover:bg-white transition-all';
+      });
+    }
+
+    function stepHomeStage(delta) {
+      goToHomeStage(currentHomeStage + delta);
+    }
+
+    function startHomeStageHover() {
+      if (stageDetailsOpen) return;
+      stopHomeStageHover();
+      homeStageTimer = setInterval(() => {
+        stepHomeStage(1);
+      }, 2600);
+    }
+
+    function stopHomeStageHover() {
+      if (homeStageTimer) {
+        clearInterval(homeStageTimer);
+        homeStageTimer = null;
+      }
+    }
+
+    // =========================================================
+    // 3. DROPDOWN MENUS & MULTI-VIEW NAVIGATION
+    // =========================================================
+    function toggleDropdown(id) {
+      const target = document.getElementById(id);
+      const isHidden = target ? target.classList.contains('hidden') : true;
+      closeAllDropdowns();
+      if (target && isHidden) {
+        target.classList.remove('hidden');
+      }
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const button = document.getElementById('mobile-menu-button');
+      if (!menu || !button) return;
+
+      const isHidden = menu.classList.contains('hidden');
+      menu.classList.toggle('hidden', !isHidden);
+      button.setAttribute('aria-expanded', String(isHidden));
+    }
+
+    function toggleMobileSubmenu(id) {
+      const submenu = document.getElementById(id);
+      if (!submenu) return;
+
+      const isHidden = submenu.classList.contains('hidden');
+      document.querySelectorAll('#mobile-menu nav > div[id]').forEach((menu) => {
+        menu.classList.add('hidden');
+      });
+      document.querySelectorAll('[data-mobile-arrow]').forEach((arrow) => {
+        arrow.textContent = '\u203A';
+      });
+      document.querySelectorAll('#mobile-menu nav > button[aria-controls]').forEach((toggle) => {
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+
+      if (isHidden) {
+        submenu.classList.remove('hidden');
+        const arrow = document.querySelector('[data-mobile-arrow="' + id + '"]');
+        if (arrow) arrow.textContent = '\u2304';
+      }
+      const toggle = document.querySelector('[aria-controls="' + id + '"]');
+      if (toggle) toggle.setAttribute('aria-expanded', String(isHidden));
+    }
+
+    function closeMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const button = document.getElementById('mobile-menu-button');
+      if (menu) menu.classList.add('hidden');
+      if (button) button.setAttribute('aria-expanded', 'false');
+      document.querySelectorAll('#mobile-menu nav > div[id]').forEach((submenu) => {
+        submenu.classList.add('hidden');
+      });
+      document.querySelectorAll('#mobile-menu nav > button[aria-controls]').forEach((toggle) => {
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+      document.querySelectorAll('[data-mobile-arrow]').forEach((arrow) => {
+        arrow.textContent = '\u203A';
+      });
+    }
+
+    function closeAllDropdowns() {
+      document.querySelectorAll('.nav-dropdown > div').forEach((menu) => {
+        menu.classList.add('hidden');
+      });
+    }
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) {
+        closeAllDropdowns();
+      }
+    });
+
+    function switchView(viewName) {
+      closeAllDropdowns();
+      closeMobileMenu();
+      stopHomeStageHover();
+      document.querySelectorAll('.app-view').forEach((view) => view.classList.add('hidden'));
+
+      const target = document.getElementById('view-' + viewName) || document.getElementById('view-home');
+      if (target) target.classList.remove('hidden');
+      if (viewName === 'requirements') {
+        filterStages('all');
+      }
+
+      const homeLink = document.getElementById('nav-home-link');
+      if (homeLink) {
+        if (viewName === 'home') {
+          homeLink.classList.add('text-[#173B8A]', 'font-bold');
+        } else {
+          homeLink.classList.remove('text-[#173B8A]', 'font-bold');
+        }
+      }
+
+      document.querySelectorAll('[data-mobile-view]').forEach((link) => {
+        const isActive = link.getAttribute('data-mobile-view') === viewName;
+        link.classList.toggle('bg-white/15', isActive);
+        link.classList.toggle('text-white', isActive);
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function openRequirementsForStage(stage) {
+      switchView('requirements');
+      filterStages(String(stage));
+    }
+
+    // Qualifications vs Disqualifications 2-Tab Switcher
+    function switchQualTab(tab) {
+      const qualBtn = document.getElementById('qual-tab-btn');
+      const disqualBtn = document.getElementById('disqual-tab-btn');
+      const qualPanel = document.getElementById('qual-panel');
+      const disqualPanel = document.getElementById('disqual-panel');
+
+      if (tab === 'qual') {
+        qualBtn.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold bg-[#173B8A] text-white transition';
+        disqualBtn.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold text-slate-600 hover:text-slate-900 transition';
+        qualPanel.classList.remove('hidden');
+        disqualPanel.classList.add('hidden');
+      } else {
+        disqualBtn.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold bg-[#173B8A] text-white transition';
+        qualBtn.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold text-slate-600 hover:text-slate-900 transition';
+        disqualPanel.classList.remove('hidden');
+        qualPanel.classList.add('hidden');
+      }
+    }
+
+    // How to Use Role Switcher
+    function switchGuide(role) {
+      const appBtn = document.getElementById('guide-tab-applicant');
+      const schBtn = document.getElementById('guide-tab-scholar');
+      const appPanel = document.getElementById('guide-panel-applicant');
+      const schPanel = document.getElementById('guide-panel-scholar');
+
+      if (role === 'applicant') {
+        appBtn.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold bg-[#173B8A] text-white transition';
+        schBtn.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold text-slate-600 hover:text-slate-900 transition';
+        appPanel.classList.remove('hidden');
+        appPanel.classList.add('grid');
+        schPanel.classList.add('hidden');
+        schPanel.classList.remove('grid');
+      } else {
+        schBtn.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold bg-[#173B8A] text-white transition';
+        appBtn.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold text-slate-600 hover:text-slate-900 transition';
+        schPanel.classList.remove('hidden');
+        schPanel.classList.add('grid');
+        appPanel.classList.add('hidden');
+        appPanel.classList.remove('grid');
+      }
+    }
+
+    // Requirements Stage Filter
+    function filterStages(stage) {
+      const cards = document.querySelectorAll('.stage-card');
+      const tabs = document.querySelectorAll('.stage-tab');
+
+      tabs.forEach((btn) => {
+        if (btn.getAttribute('data-stage-btn') === stage) {
+          btn.className = 'stage-tab bg-[#173B8A] text-white text-xs font-semibold px-3 py-1.5 rounded-lg transition';
+        } else {
+          btn.className = 'stage-tab bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold px-3 py-1.5 rounded-lg transition';
+        }
+      });
+
+      cards.forEach((card) => {
+        if (stage === 'all' || card.getAttribute('data-stage') === stage) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const msg = document.getElementById('contact-msg');
+      const fb = document.getElementById('contact-feedback');
+      if (msg) msg.value = '';
+      const cc = document.getElementById('char-count');
+      if (cc) cc.textContent = '0/2000';
+      if (fb) {
+        fb.classList.remove('hidden');
+        setTimeout(() => fb.classList.add('hidden'), 4000);
+      }
+    }
+
+    // =========================================================
+    // 4. PORTAL MODAL (SAFE DOM CREATION)
+    // =========================================================
+    let currentModalType = 'apply';
+
+    function openModal(type) {
+      currentModalType = type;
+      const modal = document.getElementById('portal-modal');
+      const eyebrow = document.getElementById('modal-eyebrow');
+      const title = document.getElementById('modal-title');
+      const body = document.getElementById('modal-body');
+      const formArea = document.getElementById('modal-form-area');
+      const status = document.getElementById('modal-status');
+      const btn = document.getElementById('modal-primary-btn');
+
+      formArea.textContent = '';
+      status.classList.add('hidden');
+      status.textContent = '';
+
+      if (type === 'apply') {
+        eyebrow.textContent = 'Applicant Web Portal';
+        title.textContent = 'Sign in or Start Application';
+        body.textContent = 'Enter your email address to receive a 6-digit verification code to start your Stage 1 application or check your current stage.';
+
+        const input = document.createElement('input');
+        input.type = 'email';
+        input.id = 'modal-email-input';
+        input.placeholder = 'student@email.com';
+        input.className = 'w-full rounded-lg border border-slate-300 px-3.5 py-2 text-sm focus:outline-none focus:border-[#173B8A]';
+        formArea.appendChild(input);
+
+        btn.textContent = 'Send 6-digit code';
+      } else if (type === 'admin') {
+        eyebrow.textContent = 'Scholarship Office Portal';
+        title.textContent = 'Administrator Sign In';
+        body.textContent = 'Restricted to authorized LGU Ormoc City Scholarship Office personnel for screening stage encoding, attendance validation, and analytics.';
+
+        const emailIn = document.createElement('input');
+        emailIn.type = 'email';
+        emailIn.placeholder = 'admin@ormoc.gov.ph';
+        emailIn.className = 'w-full rounded-lg border border-slate-300 px-3.5 py-2 text-sm focus:outline-none focus:border-[#173B8A]';
+
+        const passIn = document.createElement('input');
+        passIn.type = 'password';
+        passIn.placeholder = 'Password';
+        passIn.className = 'w-full rounded-lg border border-slate-300 px-3.5 py-2 text-sm focus:outline-none focus:border-[#173B8A]';
+
+        formArea.appendChild(emailIn);
+        formArea.appendChild(passIn);
+
+        btn.textContent = 'Sign in';
+      } else if (type === 'eligibility') {
+        eyebrow.textContent = 'Quick Eligibility Self-Check';
+        title.textContent = 'Basic Eligibility Verification';
+        body.textContent = 'Confirm the core residency, citizenship, academic standing, and single-scholarship requirements before submitting your Stage 1 application.';
+
+        const checks = [
+          'Filipino citizen and permanent resident of the City of Ormoc',
+          'Grade 12 / SHS graduate with at least 80% average (no failing grade), OR college student with at least 2.5 or 80% weighted average (no failing or INC grade)',
+          'Not presently enjoying any other government or private scholarship or study grant'
+        ];
+        const list = document.createElement('ul');
+        list.className = 'space-y-2 text-xs text-slate-700 bg-slate-50 border border-slate-200 rounded-lg p-3.5 list-disc pl-7';
+        checks.forEach((txt) => {
+          const li = document.createElement('li');
+          li.textContent = txt;
+          list.appendChild(li);
+        });
+        formArea.appendChild(list);
+        btn.textContent = 'Proceed to Apply';
+      } else {
+        eyebrow.textContent = 'Data Privacy & Retention';
+        title.textContent = 'How Your Information Is Protected';
+        body.textContent = 'Personal data and uploaded files are processed strictly for LGU Ormoc City Scholarship administration under the Data Privacy Act of 2012 (RA 10173). Records and uploaded files of unapproved applicants are permanently deleted after the LGU-approved retention period.';
+        btn.textContent = 'Understood';
+      }
+
+      modal.classList.remove('hidden');
+    }
+
+    function handleModalPrimary() {
+      const status = document.getElementById('modal-status');
+      if (currentModalType === 'eligibility') {
+        openModal('apply');
+        return;
+      }
+      if (currentModalType === 'apply') {
+        const emailInput = document.getElementById('modal-email-input');
+        const emailVal = emailInput ? emailInput.value.trim() : '';
+        if (!emailVal) {
+          status.textContent = 'Please enter a valid email address first.';
+          status.className = 'text-xs font-bold text-amber-700';
+          status.classList.remove('hidden');
+          return;
+        }
+        status.textContent = 'A 6-digit verification code has been sent to ' + emailVal + '.';
+        status.className = 'text-xs font-bold text-emerald-700';
+        status.classList.remove('hidden');
+      } else {
+        closeModal();
+      }
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('portal-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    // Initialize visual components safely
+    function initLinkodScholar() {
+      renderHighlights();
+      renderHomeStage();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initLinkodScholar);
+    } else {
+      initLinkodScholar();
+    }
+  </script>
+</body>
+</html>
